@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD des photos</title>
+</head>
+<body>
+    <h1>CRUD des photos</h1>
+
+    <!-- Afficher la liste des photos -->
+    <h2>Liste des photos</h2>
+    <ul>
+        {% for photo in photos %}
+        <li>{{ photo.nom }} - {{ photo.description }} - {{ photo.date }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Formulaire d'ajout/modification des photos -->
+    <h2>Ajouter/Modifier une photo</h2>
+    <form method="POST" action="/crud-photos">
+        <input type="hidden" name="action" value="add">
+        <label for="photo_nom">Nom de la photo</label>
+        <input type="text" id="photo_nom" name="photo_nom" required><br>
+        <label for="photo_description">Description de la photo</label>
+        <input type="text" id="photo_description" name="photo_description" required><br>
+        <label for="photo_date">Date de la photo</label>
+        <input type="text" id="photo_date" name="photo_date" required><br>
+        <input type="submit" value="Ajouter/Modifier">
+    </form>
+
+    <!-- Formulaire de suppression des photos -->
+    <h2>Supprimer une photo</h2>
+    <form method="POST" action="/crud-photos">
+        <input type="hidden" name="action" value="delete">
+        <label for="photo_id">ID de la photo</label>
+        <input type="text" id="photo_id" name="photo_id" required><br>
+        <input type="submit" value="Supprimer">
+    </form>
+</body>
+</html>

@@ -29,7 +29,7 @@ def login():
             return redirect('/crud-photos')
         else:
             # Informations d'identification invalides, afficher un message d'erreur
-            return render_template('login.html', error_message='Identifiants invalides')
+           return render_template('login.html')
 
     return render_template('login.html')
 
