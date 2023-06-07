@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import mysql.connector
-from crud_photo import crud_photos
+import crud_photo
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def login():
 
 @app.route('/crud-photos')
 def crud_photos_route():
-    return crud_photos(db)
+    return crud_photo.crud_photos(db)
 
 if __name__ == '__main__':
     app.run()
