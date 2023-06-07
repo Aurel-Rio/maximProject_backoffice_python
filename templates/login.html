@@ -6,10 +6,11 @@
 <body>
     <h1>Connexion</h1>
     <form method="POST" action="/login">
-        {{ form.csrf_token }}
-        {{ form.username.label }} {{ form.username() }}<br>
-        {{ form.password.label }} {{ form.password() }}<br>
-        {{ form.submit }}
+        <label for="username">Pseudo</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Se connecter">
     </form>
 </body>
 </html>

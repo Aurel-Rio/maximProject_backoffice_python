@@ -1,7 +1,6 @@
-from flask import Flask, render_template
-from loginForm import LoginForm
+from flask import Flask, render_template, request
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -9,18 +8,15 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
-
-    if form.validate_on_submit():
-        # Récupérer les données du formulaire
-        username = form.username.data
-        password = form.password.data
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
 
         # Vérifier les informations d'identification ici
 
         # Rediriger vers la page d'accueil si les informations sont valides
 
-    return render_template('login.html', form=form)
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run()
